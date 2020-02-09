@@ -17,9 +17,9 @@ const randomFunc = {
 clipboard.addEventListener('click', () => {
 	const textarea = document.createElement('textarea');
 	const password = resultEl.innerText;
-	
-	if(!password) { return; }
-	
+
+	if (!password) { return; }
+
 	textarea.value = password;
 	document.body.appendChild(textarea);
 	textarea.select();
@@ -34,30 +34,30 @@ generate.addEventListener('click', () => {
 	const hasUpper = uppercaseEl.checked;
 	const hasNumber = numbersEl.checked;
 	const hasSymbol = symbolsEl.checked;
-	
+
 	resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
 });
 
 function generatePassword(lower, upper, number, symbol, length) {
 	let generatedPassword = '';
 	const typesCount = lower + upper + number + symbol;
-	const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
-	
-	
-	if(typesCount === 0) {
+	const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter(item => Object.values(item)[0]);
+
+
+	if (typesCount === 0) {
 		return '';
 	}
-	
+
 	// create a loop
-	for(let i=0; i<length; i+=typesCount) {
+	for (let i = 0; i < length; i += typesCount) {
 		typesArr.forEach(type => {
 			const funcName = Object.keys(type)[0];
 			generatedPassword += randomFunc[funcName]();
 		});
 	}
-	
+
 	const finalPassword = generatedPassword.slice(0, length);
-	
+
 	return finalPassword;
 }
 
@@ -89,5 +89,3 @@ floating_btn.addEventListener('click', () => {
 close_btn.addEventListener('click', () => {
 	social_panel_container.classList.remove('visible')
 });
-
-/*Blood sweat and tears went into this*/
