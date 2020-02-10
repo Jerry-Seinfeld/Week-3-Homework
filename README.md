@@ -3,4 +3,4 @@ In this project I was required to create a password generator that randomly crea
 
 [Website](https://jerry-seinfeld.github.io/Week-3-Homework/)
 
-![Screenshot](C:\Users\andre\Downloads\Week-3-Homework\Screenshot.pngv)
+![Screenshot](Screenshot.png)
